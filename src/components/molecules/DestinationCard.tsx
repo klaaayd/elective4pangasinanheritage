@@ -16,43 +16,52 @@ export function DestinationCard({ destination, className, ...props }: Destinatio
   return (
     <div 
       className={cn(
-        "group flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition-all hover:shadow-md",
+        "group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1",
         className
       )}
       {...props}
     >
-      <div className="relative h-48 w-full overflow-hidden bg-slate-100">
+      <Link href={`/destinations/${destination.id}`} className="block relative h-52 w-full overflow-hidden bg-slate-100">
         <Image
           src={destination.image}
           alt={destination.name}
           fill
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
-        <div className="absolute left-3 top-3">
+        <div className="absolute left-3 top-3 z-10">
           <Badge variant={destination.category.toLowerCase() as 'natural' | 'historical' | 'cultural' | 'religious'}>
             {destination.category}
           </Badge>
         </div>
-      </div>
-      <div className="flex flex-1 flex-col p-5">
-        <div className="mb-2 flex items-center text-slate-500">
-          <MapPin className="mr-1 h-4 w-4" />
-          <Text variant="small" className="text-slate-500">{destination.location}</Text>
+      </Link>
+      
+      <div className="flex flex-1 flex-col p-6">
+        <div className="mb-2.5 flex items-center text-slate-500 text-xs font-medium">
+          <MapPin className="mr-1 h-3.5 w-3.5 text-pangasinan-blue shrink-0" />
+          <span>{destination.location}, Pangasinan</span>
         </div>
-        <Heading level={3} className="mb-2 text-xl line-clamp-1 group-hover:text-pangasinan-blue transition-colors">
-          <Link href={`/destinations/${destination.id}`} className="focus:outline-none">
-            <span className="absolute inset-0" aria-hidden="true" />
+
+        <Heading level={3} className="mb-2 text-xl font-bold line-clamp-1 group-hover:text-pangasinan-blue transition-colors">
+          <Link href={`/destinations/${destination.id}`}>
             {destination.name}
           </Link>
         </Heading>
-        <Text variant="muted" className="line-clamp-2 mb-4 flex-1">
+
+        <Text variant="muted" className="line-clamp-2 mb-6 text-sm text-slate-600 flex-1 leading-relaxed">
           {destination.shortDescription}
         </Text>
-        <div className="mt-auto">
-          <span className="text-sm font-medium text-pangasinan-blue group-hover:underline">
-            Explore destination &rarr;
+
+        <div className="pt-4 border-t border-slate-100 flex items-center justify-between mt-auto">
+          <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+            {destination.category}
           </span>
+          <Link 
+            href={`/destinations/${destination.id}`}
+            className="text-sm font-semibold text-pangasinan-blue hover:text-pangasinan-blue-dark flex items-center gap-1 transition-colors"
+          >
+            Learn Heritage &rarr;
+          </Link>
         </div>
       </div>
     </div>

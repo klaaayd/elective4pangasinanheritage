@@ -52,8 +52,8 @@ export default function DestinationsPage() {
               Browse through our comprehensive collection of Pangasinan&apos;s heritage sites, natural wonders, and cultural landmarks.
             </Text>
             
-            {/* Search Input */}
-            <div className="flex justify-center mb-6">
+            {/* Search Input with Suggestions */}
+            <div className="flex justify-center mb-6 relative z-30">
               <SearchBar 
                 value={searchQuery}
                 onChangeValue={setSearchQuery}
