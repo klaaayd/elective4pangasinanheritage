@@ -1,4 +1,5 @@
 # Pangasinan Heritage Digital Showcase
+#Clyde Randulf G. Edrada
 
 A bespoke Next.js 14 web application designed from scratch for Activity 1. This project highlights the beautiful heritage sites of Pangasinan using a custom Atomic Design system.
 
