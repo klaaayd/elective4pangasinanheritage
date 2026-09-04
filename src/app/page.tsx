@@ -29,12 +29,12 @@ export default function Home() {
         <section className="bg-pangasinan-salt-dark py-16 md:py-24">
           <div className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center gap-10">
             <div className="md:w-1/2">
-              <Heading level={2} className="mb-4">Why Visit Pangasinan?</Heading>
+              <Heading level={2} className="mb-4">The Heritage of Pangasinan</Heading>
               <Text className="mb-4">
-                Pangasinan is a province where history, culture, and nature intertwine beautifully. From the world-renowned Hundred Islands to the solemnity of the Manaoag Church, it offers diverse experiences for every type of traveler.
+                Pangasinan is a province where history, culture, and nature intertwine beautifully. From the prehistoric coral formations of the Hundred Islands to the solemn colonial architecture of Manaoag and Bolinao, each landmark tells a story of the communities and events that shaped the north.
               </Text>
               <Text>
-                Our digital showcase aims to preserve and promote these heritage sites, ensuring they remain appreciated for generations to come. Join us in celebrating the heart of the north.
+                This digital showcase is dedicated to documenting, explaining, and celebrating these heritage treasures, fostering cultural appreciation and environmental awareness for generations to come.
               </Text>
             </div>
             <div className="md:w-1/2 grid grid-cols-2 gap-4">

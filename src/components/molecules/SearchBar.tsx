@@ -5,7 +5,7 @@ import { Search, X } from "lucide-react"
 import { Button } from "@/components/atoms/Button"
 import { cn } from "@/utils/cn"
 
-export interface SearchBarProps extends Omit<React.FormHTMLAttributes<HTMLFormElement>, 'onChange'> {
+export interface SearchBarProps extends React.HTMLAttributes<HTMLDivElement> {
   value?: string;
   onChangeValue?: (val: string) => void;
   onSearch?: (query: string) => void;
@@ -28,15 +28,21 @@ export function SearchBar({ className, value, onChangeValue, onSearch, ...props 
     if (onSearch) onSearch("");
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      if (onSearch) onSearch(currentVal);
+    }
+  };
+
+  const handleSearchClick = () => {
     if (onSearch) onSearch(currentVal);
   };
 
   return (
-    <form 
+    <div 
       className={cn("flex w-full max-w-lg items-center space-x-2", className)}
-      onSubmit={handleSubmit}
+      role="search"
       {...props}
     >
       <div className="relative flex-1">
@@ -45,6 +51,7 @@ export function SearchBar({ className, value, onChangeValue, onSearch, ...props 
           type="text"
           value={currentVal}
           onChange={handleChange}
+          onKeyDown={handleKeyDown}
           placeholder="Search destinations, towns, or keywords..."
           className="flex h-11 w-full rounded-xl border border-slate-300 bg-white px-4 py-2 pl-10 pr-9 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-pangasinan-blue focus:border-transparent transition-all shadow-sm"
         />
@@ -59,7 +66,14 @@ export function SearchBar({ className, value, onChangeValue, onSearch, ...props 
           </button>
         )}
       </div>
-      <Button type="submit" className="h-11 px-6 rounded-xl shadow-sm">Search</Button>
-    </form>
+      <Button 
+        type="button" 
+        onClick={handleSearchClick}
+        className="h-11 px-6 rounded-xl shadow-sm"
+      >
+        Search
+      </Button>
+    </div>
   )
 }
+

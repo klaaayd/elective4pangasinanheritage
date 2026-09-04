@@ -62,30 +62,88 @@ export default function DestinationDetailsPage({ params }: DestinationDetailsPro
 
         <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            <div className="lg:col-span-2">
-              <Heading level={2} className="mb-6">About this Destination</Heading>
-              <Text className="text-lg leading-relaxed mb-8">
-                {destination.description}
-              </Text>
+            <div className="lg:col-span-2 space-y-10">
+              {/* Overview */}
+              <div>
+                <Heading level={2} className="mb-4 text-3xl">Heritage Overview</Heading>
+                <Text className="text-lg leading-relaxed text-slate-700">
+                  {destination.description}
+                </Text>
+              </div>
+
+              {/* Historical Background */}
+              <div className="bg-slate-50 p-6 md:p-8 rounded-2xl border border-slate-200">
+                <Heading level={3} className="mb-4 text-2xl text-pangasinan-blue">Historical Background</Heading>
+                <Text className="text-base leading-relaxed text-slate-700">
+                  {destination.historicalBackground}
+                </Text>
+              </div>
+
+              {/* Cultural Significance */}
+              <div>
+                <Heading level={3} className="mb-4 text-2xl text-pangasinan-green">Cultural & Ecological Significance</Heading>
+                <Text className="text-base leading-relaxed text-slate-700">
+                  {destination.significance}
+                </Text>
+              </div>
               
-              <Heading level={3} className="mb-4">Highlights</Heading>
-              <ul className="list-disc pl-5 space-y-2 mb-8">
-                {destination.highlights.map((highlight, index) => (
-                  <li key={index}>
-                    <Text>{highlight}</Text>
-                  </li>
-                ))}
-              </ul>
+              {/* Highlights */}
+              <div>
+                <Heading level={3} className="mb-4 text-2xl">Key Heritage Features</Heading>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {destination.highlights.map((highlight, index) => (
+                    <div key={index} className="flex items-center p-3 rounded-xl bg-white border border-slate-200 shadow-sm">
+                      <span className="w-2 h-2 rounded-full bg-pangasinan-blue mr-3 shrink-0" />
+                      <Text className="font-medium text-slate-800">{highlight}</Text>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
             
+            {/* Sidebar: Heritage Registry Card */}
             <div>
-              <div className="rounded-xl border border-slate-200 bg-slate-50 p-6 sticky top-24">
-                <Heading level={3} className="mb-4">Plan Your Visit</Heading>
-                <Text variant="muted" className="mb-6">
-                  Ready to explore the beauty of {destination.name}? Make sure to check local guidelines and weather conditions before traveling.
-                </Text>
-                <Button className="w-full mb-3">Book a Tour</Button>
-                <Button variant="outline" className="w-full">Download Brochure</Button>
+              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8 sticky top-24 shadow-sm space-y-6">
+                <div>
+                  <Heading level={3} className="text-xl mb-4">Heritage Registry</Heading>
+                  <dl className="space-y-3 text-sm">
+                    <div className="flex justify-between border-b border-slate-200 pb-2">
+                      <dt className="text-slate-500">Location:</dt>
+                      <dd className="font-medium text-slate-900">{destination.location}, Pangasinan</dd>
+                    </div>
+                    <div className="flex justify-between border-b border-slate-200 pb-2">
+                      <dt className="text-slate-500">Category:</dt>
+                      <dd className="font-medium text-slate-900">{destination.category}</dd>
+                    </div>
+                    <div className="flex justify-between border-b border-slate-200 pb-2">
+                      <dt className="text-slate-500">Period:</dt>
+                      <dd className="font-medium text-slate-900">{destination.established}</dd>
+                    </div>
+                    <div className="flex justify-between pb-1">
+                      <dt className="text-slate-500">Protection:</dt>
+                      <dd className="font-medium text-emerald-700">Protected Heritage Site</dd>
+                    </div>
+                  </dl>
+                </div>
+
+                <div className="rounded-xl bg-amber-50/80 border border-amber-200/60 p-4">
+                  <Text className="text-xs text-amber-900 leading-relaxed">
+                    <strong>Preservation Note:</strong> This site forms part of the collective natural and cultural legacy of Pangasinan. Visitors and scholars are encouraged to preserve and respect its heritage.
+                  </Text>
+                </div>
+
+                <div className="space-y-3 pt-2">
+                  <Link href="/destinations" className="block">
+                    <Button variant="primary" className="w-full">
+                      Explore All Heritage Sites
+                    </Button>
+                  </Link>
+                  <Link href="/about" className="block">
+                    <Button variant="outline" className="w-full">
+                      Read Province History
+                    </Button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
