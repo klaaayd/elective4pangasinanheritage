@@ -5,6 +5,7 @@ import { Heading } from "@/components/atoms/Heading"
 import { Text } from "@/components/atoms/Text"
 import { Button } from "@/components/atoms/Button"
 import { cn } from "@/utils/cn"
+import { getImagePath } from "@/utils/basePath"
 
 export function Hero({ className }: React.HTMLAttributes<HTMLElement>) {
   return (
@@ -12,7 +13,7 @@ export function Hero({ className }: React.HTMLAttributes<HTMLElement>) {
       {/* Background Image Overlay */}
       <div className="absolute inset-0 z-0 opacity-40">
         <Image 
-          src="/images/hundred-islands.jpg" 
+          src={getImagePath("/images/hundred-islands.jpg")} 
           alt="Hundred Islands" 
           fill 
           className="object-cover" 

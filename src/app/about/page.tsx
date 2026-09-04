@@ -4,6 +4,7 @@ import { Badge } from "@/components/atoms/Badge"
 import { Button } from "@/components/atoms/Button"
 import Link from "next/link"
 import Image from "next/image"
+import { getImagePath } from "@/utils/basePath"
 
 export const metadata = {
   title: "About Pangasinan | Heritage Showcase",
@@ -18,7 +19,7 @@ export default function AboutPage() {
         <section className="relative w-full overflow-hidden bg-slate-900 py-20 lg:py-32">
           <div className="absolute inset-0 z-0 opacity-40">
             <Image 
-              src="/images/hundred-islands.jpg" 
+              src={getImagePath("/images/hundred-islands.jpg")} 
               alt="Hundred Islands" 
               fill 
               className="object-cover" 
@@ -76,7 +77,7 @@ export default function AboutPage() {
                     </p>
                   </div>
                   <div className="mt-6 rounded-2xl overflow-hidden shadow-md border border-slate-200 h-64 relative">
-                     <Image src="/images/manaoag-church.jpg" alt="Manaoag Church" fill className="object-cover" />
+                     <Image src={getImagePath("/images/manaoag-church.jpg")} alt="Manaoag Church" fill className="object-cover" />
                   </div>
                 </div>
 
@@ -93,10 +94,10 @@ export default function AboutPage() {
                   </div>
                   <div className="mt-6 grid grid-cols-2 gap-4">
                      <div className="rounded-2xl overflow-hidden shadow-sm border border-slate-200 h-48 relative">
-                       <Image src="/images/sunflower-maze.jpg" alt="Sunflower Maze" fill className="object-cover" />
+                       <Image src={getImagePath("/images/sunflower-maze.jpg")} alt="Sunflower Maze" fill className="object-cover" />
                      </div>
                      <div className="rounded-2xl overflow-hidden shadow-sm border border-slate-200 h-48 relative">
-                       <Image src="/images/bued-mangrove.jpg" alt="Bued Mangrove" fill className="object-cover" />
+                       <Image src={getImagePath("/images/bued-mangrove.jpg")} alt="Bued Mangrove" fill className="object-cover" />
                      </div>
                   </div>
                 </div>
