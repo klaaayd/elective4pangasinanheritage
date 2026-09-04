@@ -1,5 +1,6 @@
 import * as React from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Heading } from "@/components/atoms/Heading"
 import { Text } from "@/components/atoms/Text"
 import { Button } from "@/components/atoms/Button"
@@ -9,10 +10,15 @@ export function Hero({ className }: React.HTMLAttributes<HTMLElement>) {
   return (
     <section className={cn("relative w-full overflow-hidden bg-slate-900 py-24 lg:py-32 xl:py-48", className)}>
       {/* Background Image Overlay */}
-      <div 
-        className="absolute inset-0 z-0 opacity-40 bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/hundred-islands.jpg')" }}
-      />
+      <div className="absolute inset-0 z-0 opacity-40">
+        <Image 
+          src="/images/hundred-islands.jpg" 
+          alt="Hundred Islands" 
+          fill 
+          className="object-cover" 
+          priority 
+        />
+      </div>
       <div className="absolute inset-0 z-0 bg-gradient-to-t from-slate-900/80 to-transparent" />
       
       <div className="container relative z-10 mx-auto px-4 md:px-6 flex flex-col items-center text-center">

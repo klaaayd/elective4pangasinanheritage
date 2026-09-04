@@ -16,10 +16,15 @@ export default function AboutPage() {
       <main className="flex-1">
         {/* Hero Section */}
         <section className="relative w-full overflow-hidden bg-slate-900 py-20 lg:py-32">
-          <div 
-            className="absolute inset-0 z-0 opacity-40 bg-cover bg-center"
-            style={{ backgroundImage: "url('/images/hundred-islands.jpg')" }}
-          />
+          <div className="absolute inset-0 z-0 opacity-40">
+            <Image 
+              src="/images/hundred-islands.jpg" 
+              alt="Hundred Islands" 
+              fill 
+              className="object-cover" 
+              priority 
+            />
+          </div>
           <div className="absolute inset-0 z-0 bg-gradient-to-t from-slate-900/90 to-slate-900/40" />
           
           <div className="container relative z-10 mx-auto px-4 md:px-6">
@@ -27,7 +32,7 @@ export default function AboutPage() {
               <Badge variant="cultural" className="mb-4 bg-pangasinan-sand text-slate-900 border-none">Discover</Badge>
               <Heading level={1} className="mb-6 text-white text-4xl md:text-5xl lg:text-6xl">The Heart of Northern Luzon</Heading>
               <Text variant="lead" className="text-slate-200 text-lg md:text-xl max-w-2xl">
-                Pangasinan translates to "place of salt" or "place of salt-making", derived from the province's rich coastal resources. It is a land of stunning natural wonders and deep-rooted heritage.
+                Pangasinan translates to &ldquo;place of salt&rdquo; or &ldquo;place of salt-making&rdquo;, derived from the province&apos;s rich coastal resources. It is a land of stunning natural wonders and deep-rooted heritage.
               </Text>
             </div>
           </div>
@@ -67,7 +72,7 @@ export default function AboutPage() {
                       The province is a melting pot of various ethnolinguistic groups. While <strong>Pangasinan</strong> is the primary language of the central towns, <strong>Ilocano</strong> is widely spoken in the eastern and western municipalities. This linguistic diversity reflects a rich history of migration and trade that has shaped the local culture over centuries.
                     </p>
                     <p className="mb-6">
-                      Pangasinan's history dates back to pre-colonial times when it was an ancient kingdom known as <em>Luyag na Kaboloan</em>. It successfully traded with China, Japan, and other Southeast Asian kingdoms long before the Spanish arrival in the 16th century.
+                      Pangasinan&apos;s history dates back to pre-colonial times when it was an ancient kingdom known as <em>Luyag na Kaboloan</em>. It successfully traded with China, Japan, and other Southeast Asian kingdoms long before the Spanish arrival in the 16th century.
                     </p>
                   </div>
                   <div className="mt-6 rounded-2xl overflow-hidden shadow-md border border-slate-200 h-64 relative">
